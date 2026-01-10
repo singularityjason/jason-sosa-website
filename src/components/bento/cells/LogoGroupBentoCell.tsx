@@ -40,7 +40,7 @@ function LogoWithFallback({
       loading="lazy"
       onError={() => setHasError(true)}
       className={cn(
-        "max-h-8 sm:max-h-10 w-auto object-contain",
+        "max-h-12 sm:max-h-16 lg:max-h-20 w-auto object-contain",
         "filter grayscale-[50%] opacity-70",
         "transition-all duration-300",
         "group-hover:grayscale-0 group-hover:opacity-100"
@@ -91,7 +91,7 @@ export function LogoGroupBentoCell({ item, onClick }: LogoGroupBentoCellProps) {
               key={index}
               className={cn(
                 "flex items-center justify-center",
-                logos.length > 6 ? "h-8 sm:h-10" : "h-10 sm:h-14"
+                logos.length > 6 ? "h-12 sm:h-16" : "h-14 sm:h-20"
               )}
             >
               <LogoWithFallback logo={logo} index={index} />

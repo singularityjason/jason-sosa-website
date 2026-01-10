@@ -137,12 +137,6 @@ const Header = () => {
           </div>
           <div className="flex items-center gap-3">
             <Link
-              to="/speaking"
-              className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium text-white/70 hover:text-white transition-colors h-10 px-4 py-2"
-            >
-              Speaking
-            </Link>
-            <Link
               to="/contact"
               className="hidden md:inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold bg-accent hover:bg-accent/90 text-white h-10 px-5 py-2 shadow-lg shadow-accent/20 transition-all"
             >
