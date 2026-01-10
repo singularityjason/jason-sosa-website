@@ -1,0 +1,32 @@
+
+# robots.txt for jasonsosa.com
+User-agent: *
+Allow: /
+
+# Allow important sections
+Allow: /about
+Allow: /contact
+Allow: /topics
+Allow: /speaking
+
+# Disallow admin areas if they exist
+Disallow: /admin/
+Disallow: /wp-admin/
+
+# Googlebot-specific rules
+User-agent: Googlebot
+Allow: /
+
+# Bingbot-specific rules
+User-agent: Bingbot
+Allow: /
+
+# Social media bots
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# Sitemap location
+Sitemap: https://jasonsosa.com/sitemap.xml
