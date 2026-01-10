@@ -1,9 +1,53 @@
 import { cn } from "@/lib/utils";
 import { BentoItem } from "../types";
+import { useState } from "react";
 
 interface LogoGroupBentoCellProps {
   item: BentoItem;
   onClick?: () => void;
+}
+
+function LogoWithFallback({
+  logo,
+  index
+}: {
+  logo: { name: string; url: string };
+  index: number;
+}) {
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) {
+    // Text fallback for broken images
+    return (
+      <div
+        className={cn(
+          "flex items-center justify-center px-2 py-1",
+          "text-xs font-medium text-white/60 text-center",
+          "transition-all duration-300",
+          "group-hover:text-white/90"
+        )}
+        style={{ transitionDelay: `${index * 50}ms` }}
+      >
+        {logo.name}
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={logo.url}
+      alt={logo.name}
+      loading="lazy"
+      onError={() => setHasError(true)}
+      className={cn(
+        "max-w-full max-h-full object-contain",
+        "filter grayscale-[50%] opacity-70",
+        "transition-all duration-300",
+        "group-hover:grayscale-0 group-hover:opacity-100"
+      )}
+      style={{ transitionDelay: `${index * 50}ms` }}
+    />
+  );
 }
 
 export function LogoGroupBentoCell({ item, onClick }: LogoGroupBentoCellProps) {
@@ -42,23 +86,7 @@ export function LogoGroupBentoCell({ item, onClick }: LogoGroupBentoCellProps) {
               key={index}
               className="flex items-center justify-center aspect-[3/2]"
             >
-              <img
-                src={logo.url}
-                alt={logo.name}
-                loading="lazy"
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                }}
-                className={cn(
-                  "max-w-full max-h-full object-contain",
-                  "filter grayscale-[50%] opacity-70",
-                  "transition-all duration-300",
-                  "group-hover:grayscale-0 group-hover:opacity-100"
-                )}
-                style={{
-                  transitionDelay: `${index * 50}ms`,
-                }}
-              />
+              <LogoWithFallback logo={logo} index={index} />
             </div>
           ))}
         </div>

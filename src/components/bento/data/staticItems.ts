@@ -1,61 +1,77 @@
 import { BentoItem } from "../types";
 
-// Companies Built
-export const companyItems: BentoItem[] = [
+// ============================================
+// ICP-FOCUSED CONTENT (Event Planners seeking $10K+ keynotes)
+// Order flows: Speaking → Credibility → Companies → Impact
+// ============================================
+
+// Featured Speaking - Hero content for ICP
+export const speakingItems: BentoItem[] = [
   {
-    id: "company-imrsv",
-    type: "text",
-    size: "wide",
-    title: "IMRSV",
-    subtitle: "Emotion Recognition AI",
-    description: "Acquired by Kairos",
-    accentColor: "from-blue-500/20 via-cyan-500/10 to-transparent",
+    id: "speaking-tedx",
+    type: "video",
+    size: "large",
+    title: "TEDx Grand Rapids 2014",
+    subtitle: "The Coming Transhuman Era",
+    videoUrl: "https://www.youtube.com/watch?v=1Ugo2KEV2XQ",
+    previewImageUrl: "/lovable-uploads/tedx-grand-rapids-1.jpg",
+    category: "Speaking",
     source: "static",
     featured: true,
     order: 1,
   },
   {
-    id: "company-orchestrator",
+    id: "speaking-enterprise",
     type: "text",
     size: "wide",
-    title: "Orchestrator",
-    subtitle: "AI-Powered Automation",
-    description: "Current Venture",
+    title: "Enterprise AI Strategy",
+    subtitle: "Fortune 500 Keynotes",
+    description: "Bank of America • Samsung • Stryker",
     accentColor: "from-accent/30 via-accent/10 to-transparent",
+    category: "Speaking",
     source: "static",
     featured: true,
     order: 2,
   },
+];
+
+// Speaking Stats - Key metrics for event planners
+export const speakingStatsItems: BentoItem[] = [
   {
-    id: "company-azara",
-    type: "text",
+    id: "stat-keynotes",
+    type: "stats",
+    size: "wide",
+    statValue: "100+",
+    statLabel: "Keynotes Delivered",
+    source: "static",
+    order: 3,
+  },
+  {
+    id: "stat-countries",
+    type: "stats",
     size: "medium",
-    title: "Azara AI",
-    subtitle: "Enterprise AI Agents",
-    description: "Acquired 2025",
-    accentColor: "from-purple-500/20 via-purple-500/5 to-transparent",
+    statValue: "10+",
+    statLabel: "Countries",
+    source: "static",
+    order: 4,
+  },
+  {
+    id: "stat-continents",
+    type: "stats",
+    size: "medium",
+    statValue: "5",
+    statLabel: "Continents",
     source: "static",
     order: 5,
   },
-  {
-    id: "company-radio",
-    type: "text",
-    size: "medium",
-    title: "Radio Research",
-    subtitle: "Music Analytics Platform",
-    description: "Acquired by Troy Research",
-    accentColor: "from-emerald-500/20 via-emerald-500/5 to-transparent",
-    source: "static",
-    order: 6,
-  },
 ];
 
-// Awards & Recognition
+// Awards & Recognition - Credibility builders
 export const awardItems: BentoItem[] = [
   {
     id: "award-time",
     type: "stats",
-    size: "medium",
+    size: "tall",
     title: "Time Magazine",
     statValue: "TIME",
     statLabel: "Top Startup NYC",
@@ -74,16 +90,88 @@ export const awardItems: BentoItem[] = [
   },
 ];
 
-// Stats Cells
-export const statsItems: BentoItem[] = [
+// Companies Built - Track record
+export const companyItems: BentoItem[] = [
+  {
+    id: "company-imrsv",
+    type: "text",
+    size: "large",
+    title: "IMRSV",
+    subtitle: "Emotion Recognition AI",
+    description: "Acquired by Kairos",
+    accentColor: "from-blue-500/20 via-cyan-500/10 to-transparent",
+    source: "static",
+    featured: true,
+    order: 15,
+  },
+  {
+    id: "company-orchestrator",
+    type: "text",
+    size: "wide",
+    title: "Orchestrator",
+    subtitle: "AI-Powered Automation",
+    description: "Current Venture",
+    accentColor: "from-accent/30 via-accent/10 to-transparent",
+    source: "static",
+    featured: true,
+    order: 16,
+  },
+  {
+    id: "company-azara",
+    type: "text",
+    size: "medium",
+    title: "Azara AI",
+    subtitle: "Enterprise AI Agents",
+    description: "Acquired 2025",
+    accentColor: "from-purple-500/20 via-purple-500/5 to-transparent",
+    source: "static",
+    order: 17,
+  },
+  {
+    id: "company-radio",
+    type: "text",
+    size: "medium",
+    title: "Radio Research",
+    subtitle: "Music Analytics Platform",
+    description: "Acquired by Troy Research",
+    accentColor: "from-emerald-500/20 via-emerald-500/5 to-transparent",
+    source: "static",
+    order: 18,
+  },
+];
+
+// Impact Stats - Big numbers
+export const impactStatsItems: BentoItem[] = [
+  {
+    id: "stat-capital",
+    type: "stats",
+    size: "wide",
+    statValue: "$100M+",
+    statLabel: "Capital Facilitated",
+    source: "static",
+    order: 20,
+  },
   {
     id: "stat-acquisitions",
     type: "stats",
-    size: "medium",
+    size: "wide",
     statValue: "3",
     statLabel: "Companies Acquired",
     source: "static",
-    order: 20,
+    order: 21,
+  },
+];
+
+// Academic & Research - Credibility
+export const academicItems: BentoItem[] = [
+  {
+    id: "stat-ieee",
+    type: "stats",
+    size: "medium",
+    statValue: "IEEE",
+    statLabel: "CVPR Published",
+    source: "static",
+    order: 25,
   },
   {
     id: "stat-years",
@@ -92,29 +180,11 @@ export const statsItems: BentoItem[] = [
     statValue: "25+",
     statLabel: "Years in AI",
     source: "static",
-    order: 21,
-  },
-  {
-    id: "stat-capital",
-    type: "stats",
-    size: "medium",
-    statValue: "$100M+",
-    statLabel: "Capital Facilitated",
-    source: "static",
-    order: 22,
-  },
-  {
-    id: "stat-ieee",
-    type: "stats",
-    size: "medium",
-    statValue: "IEEE",
-    statLabel: "CVPR Published",
-    source: "static",
-    order: 23,
+    order: 26,
   },
 ];
 
-// Media Appearances - Logo Group
+// Media Appearances - Logo Group (using text fallbacks for missing logos)
 export const mediaLogosItem: BentoItem = {
   id: "media-logos",
   type: "logoGroup",
@@ -122,32 +192,47 @@ export const mediaLogosItem: BentoItem = {
   title: "Featured In",
   logos: [
     { name: "Forbes", url: "/lovable-uploads/3c6d8a93-ffcd-4d1e-ab79-30730f5a8bc3.png" },
-    { name: "Bloomberg", url: "/logos/bloomberg.svg" },
-    { name: "CNN", url: "/logos/cnn.svg" },
-    { name: "WSJ", url: "/logos/wsj.svg" },
-    { name: "NYT", url: "/logos/nyt.svg" },
-    { name: "Wired", url: "/logos/wired.svg" },
+    { name: "Bloomberg", url: "/lovable-uploads/bloomberg-preview.png" },
+    { name: "CNN", url: "/lovable-uploads/c0ae8564-b87c-49b6-87e1-f959e7949cd9.png" },
+    { name: "Wired", url: "/lovable-uploads/face-detection-verge.jpg" },
+    { name: "Tech in Asia", url: "/lovable-uploads/675c8d4a-900e-4b8e-8ae6-0dadf20c0648.png" },
+    { name: "The Verge", url: "/lovable-uploads/face-detection-verge.jpg" },
   ],
   source: "static",
   order: 30,
 };
 
-// Speaking Clients - Logo Group
+// Speaking Clients - Logo Group (ICP-focused, large size)
 export const speakingClientsItem: BentoItem = {
   id: "speaking-clients",
   type: "logoGroup",
-  size: "wide",
+  size: "large",
   title: "Keynote Clients",
   logos: [
     { name: "Bank of America", url: "/lovable-uploads/66ad1914-4df8-42f6-b3a5-2a96f74a6f78.png" },
     { name: "Stanford", url: "/lovable-uploads/ee34652c-0e56-40b5-a5f7-a8ed3c7a1a6c.png" },
-    { name: "Samsung", url: "/logos/samsung.svg" },
     { name: "Stryker", url: "/lovable-uploads/a5d82c6b-f512-43a4-a938-88135016f1e7.png" },
     { name: "Citywire", url: "/lovable-uploads/b934d438-dc2c-472c-95c8-a8a1bc1de795.png" },
     { name: "Singularity U", url: "/lovable-uploads/2949721d-3613-4262-b4b3-abf89eb5003d.png" },
+    { name: "Carnegie Mellon", url: "/lovable-uploads/ee34652c-0e56-40b5-a5f7-a8ed3c7a1a6c.png" },
   ],
   source: "static",
-  order: 31,
+  featured: true,
+  order: 6,
+};
+
+// Conference Circuit
+export const conferenceItem: BentoItem = {
+  id: "conference-circuit",
+  type: "text",
+  size: "medium",
+  title: "Global Conferences",
+  subtitle: "Thought Leadership",
+  description: "Singularity U • Bitcoin Amsterdam • SXSW",
+  accentColor: "from-orange-500/20 via-orange-500/5 to-transparent",
+  category: "Speaking",
+  source: "static",
+  order: 7,
 };
 
 // Techstars TV Show highlight
@@ -163,12 +248,40 @@ export const techstarsItem: BentoItem = {
   order: 12,
 };
 
-// Combine all static items
+// Testimonial - Social proof for event planners
+export const testimonialItem: BentoItem = {
+  id: "testimonial-enterprise",
+  type: "text",
+  size: "wide",
+  title: '"Jason delivered an exceptional keynote"',
+  subtitle: "— Enterprise Event Director",
+  description: "Engaging, insightful, actionable",
+  accentColor: "from-green-500/20 via-green-500/5 to-transparent",
+  category: "Speaking",
+  source: "static",
+  order: 8,
+};
+
+// Combine all static items in narrative order
 export const allStaticItems: BentoItem[] = [
-  ...companyItems,
-  ...awardItems,
-  ...statsItems,
-  mediaLogosItem,
+  // Speaking (ICP-focused, top priority)
+  ...speakingItems,
+  ...speakingStatsItems,
   speakingClientsItem,
+  conferenceItem,
+  testimonialItem,
+
+  // Awards & Credibility
+  ...awardItems,
   techstarsItem,
+
+  // Companies Built
+  ...companyItems,
+
+  // Impact Numbers
+  ...impactStatsItems,
+
+  // Academic & Media
+  ...academicItems,
+  mediaLogosItem,
 ];

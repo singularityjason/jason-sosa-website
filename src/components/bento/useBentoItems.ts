@@ -140,30 +140,33 @@ export function useBentoItems(options: UseBentoItemsOptions = {}) {
 
     // Sort items
     items.sort((a, b) => {
-      // Featured static items (companies) come first
-      const aIsFeaturedStatic = a.source === "static" && a.featured;
-      const bIsFeaturedStatic = b.source === "static" && b.featured;
-
-      if (aIsFeaturedStatic && !bIsFeaturedStatic) return -1;
-      if (!aIsFeaturedStatic && bIsFeaturedStatic) return 1;
-
       switch (sortBy) {
         case "featured":
+          // Featured items first, then by order
           if (a.featured && !b.featured) return -1;
           if (!a.featured && b.featured) return 1;
           return (a.order || 999) - (b.order || 999);
+
         case "recent":
-          // Static items don't have dates, keep their order
-          if (a.source === "static" && b.source === "static") {
-            return (a.order || 0) - (b.order || 0);
+          // For "recent" sort: Supabase projects by date (newest first), then static items by order
+          const aDate = a.projectData?.project_date;
+          const bDate = b.projectData?.project_date;
+
+          // If both have dates, compare dates (newest first)
+          if (aDate && bDate) {
+            return new Date(bDate).getTime() - new Date(aDate).getTime();
           }
-          if (a.source === "static") return 1;
-          if (b.source === "static") return -1;
-          // For projects, sort by date if available
+          // Items with dates come before items without
+          if (aDate && !bDate) return -1;
+          if (!aDate && bDate) return 1;
+          // For items without dates (static), use order
           return (a.order || 999) - (b.order || 999);
+
         case "title":
           return (a.title || "").localeCompare(b.title || "");
+
         default:
+          // Default: order by the order field
           return (a.order || 999) - (b.order || 999);
       }
     });
