@@ -23,36 +23,9 @@ export const speakingItems: BentoItem[] = [
   },
 ];
 
-// Speaking Stats - Key metrics for event planners (spread throughout layout)
-export const speakingStatsItems: BentoItem[] = [
-  {
-    id: "stat-keynotes",
-    type: "stats",
-    size: "wide",
-    statValue: "100+",
-    statLabel: "Keynotes Delivered",
-    source: "static",
-    order: 4,  // After clients, before conference
-  },
-  {
-    id: "stat-countries",
-    type: "stats",
-    size: "medium",
-    statValue: "10+",
-    statLabel: "Countries",
-    source: "static",
-    order: 6,  // After conference, before testimonial
-  },
-  {
-    id: "stat-continents",
-    type: "stats",
-    size: "medium",
-    statValue: "5",
-    statLabel: "Continents",
-    source: "static",
-    order: 8,  // After testimonial
-  },
-];
+// Speaking Stats - Now shown in stats bar at top of portfolio page
+// Keeping only select stats that add value in the grid
+export const speakingStatsItems: BentoItem[] = [];
 
 // Awards & Recognition - Credibility builders
 export const awardItems: BentoItem[] = [
@@ -236,7 +209,7 @@ export const impactStatsItems: BentoItem[] = [
   },
 ];
 
-// Academic & Research - Credibility
+// Academic & Research - Credibility (25+ Years now in stats bar)
 export const academicItems: BentoItem[] = [
   {
     id: "stat-ieee",
@@ -246,15 +219,6 @@ export const academicItems: BentoItem[] = [
     statLabel: "CVPR Published",
     source: "static",
     order: 25,
-  },
-  {
-    id: "stat-years",
-    type: "stats",
-    size: "medium",
-    statValue: "25+",
-    statLabel: "Years in AI",
-    source: "static",
-    order: 26,
   },
 ];
 
@@ -339,41 +303,35 @@ export const testimonialItem: BentoItem = {
   order: 7,  // After countries stat
 };
 
-// Combine all static items - stats interspersed throughout for visual variety
+// Combine all static items - cleaner layout with stats in header bar
 // NOTE: TEDx video removed - comes from Supabase to avoid duplication
 export const allStaticItems: BentoItem[] = [
-  // Row 1: Hero speaking content (TEDx comes from Supabase)
-  speakingItems[0],        // Enterprise AI Strategy (wide) - order 2
+  // Row 1: Hero speaking content
+  speakingItems[0],        // Enterprise AI Strategy (wide)
+  speakingClientsItem,     // Keynote Clients (large)
 
-  // Row 2: Clients + First stat
-  speakingClientsItem,     // Keynote Clients (large) - order 3
-  speakingStatsItems[0],   // 100+ Keynotes (wide) - order 4
+  // Row 2: Conference + Testimonial
+  conferenceItem,          // Global Conferences (medium)
+  testimonialItem,         // Testimonial (wide)
 
-  // Row 3: Text + Stats mixed
-  conferenceItem,          // Global Conferences (medium) - order 5
-  speakingStatsItems[1],   // 10+ Countries (medium) - order 6
-  testimonialItem,         // Testimonial (wide) - order 7
-  speakingStatsItems[2],   // 5 Continents (medium) - order 8
+  // Row 3: Awards & Recognition
+  awardItems[0],           // TIME (tall)
+  awardItems[1],           // Business Insider (medium)
+  techstarsItem,           // Bloomberg Techstars (medium)
 
-  // Row 4: Awards
-  awardItems[0],           // TIME (tall) - order 10
-  awardItems[1],           // Business Insider (medium) - order 11
-  techstarsItem,           // Bloomberg Techstars (medium) - order 12
+  // Row 4: Impact + Companies
+  impactStatsItems[0],     // $100M+ (wide)
+  companyItems[0],         // IMRSV (large)
+  companyItems[1],         // Orchestrator (wide)
 
-  // Row 5: Impact stat + Companies
-  impactStatsItems[0],     // $100M+ (wide) - order 14
-  companyItems[0],         // IMRSV (large) - order 15
-  companyItems[1],         // Orchestrator (wide) - order 16
+  // Row 5: More companies + acquisitions
+  impactStatsItems[1],     // 3 Acquisitions (wide)
+  companyItems[2],         // Azara AI (medium)
+  companyItems[3],         // Radio Research (medium)
 
-  // Row 6: Acquisitions stat + More companies
-  impactStatsItems[1],     // 3 Acquisitions (wide) - order 17
-  companyItems[2],         // Azara AI (medium) - order 18
-  companyItems[3],         // Radio Research (medium) - order 19
-
-  // Row 7: Academic + Media
-  academicItems[0],        // IEEE (medium) - order 22
-  academicItems[1],        // 25+ Years (medium) - order 24
-  mediaLogosItem,          // Featured In (large) - order 30
+  // Row 6: Credibility + Media
+  academicItems[0],        // IEEE (medium)
+  mediaLogosItem,          // Featured In (large)
 
   // Testimonial items (static - not editable via admin)
   ...testimonialItems,
