@@ -6,32 +6,26 @@ interface StatsBentoCellProps {
   onClick?: () => void;
 }
 
-export function StatsBentoCell({ item, onClick }: StatsBentoCellProps) {
+export function StatsBentoCell({ item }: StatsBentoCellProps) {
   return (
     <div
       className={cn(
-        "relative h-full overflow-hidden rounded-xl cursor-pointer group",
+        "relative h-full overflow-hidden rounded-xl group",
         "bg-gradient-to-br from-white/[0.06] to-white/[0.02]",
         "border border-white/10",
         "transition-all duration-300",
-        "hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5",
-        "bento-cell-focus"
+        "hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5"
       )}
-      onClick={onClick}
-      onKeyDown={(e) => e.key === "Enter" && onClick?.()}
-      tabIndex={0}
-      role="button"
-      aria-label={item.statLabel ? `${item.statValue || ''} ${item.statLabel}`.trim() : item.statValue || item.title || "View stat"}
     >
       {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-5 text-center">
         {/* Logo (if provided) */}
         {item.logoUrl && (
           <img
             src={item.logoUrl}
             alt={item.title || item.statLabel || "Logo"}
             className={cn(
-              "h-10 sm:h-12 w-auto object-contain mb-3",
+              "h-12 sm:h-14 w-auto object-contain mb-3",
               "transition-all duration-300",
               "group-hover:scale-105",
               "brightness-0 invert opacity-90"
@@ -43,7 +37,7 @@ export function StatsBentoCell({ item, onClick }: StatsBentoCellProps) {
         {(!item.logoUrl || item.subtitle) && item.statValue && (
           <div
             className={cn(
-              item.logoUrl ? "text-xl sm:text-2xl" : "text-4xl sm:text-5xl",
+              item.logoUrl ? "text-2xl sm:text-3xl" : "text-4xl sm:text-5xl lg:text-6xl",
               "font-bold",
               "bg-gradient-to-r from-white via-white/90 to-accent/80 bg-clip-text text-transparent",
               "transition-all duration-300",
@@ -56,21 +50,21 @@ export function StatsBentoCell({ item, onClick }: StatsBentoCellProps) {
 
         {/* Stat label */}
         {item.statLabel && (
-          <p className="text-sm text-white/70 mt-2 uppercase tracking-wider font-medium">
+          <p className="text-sm sm:text-base text-white/80 mt-3 uppercase tracking-wider font-semibold">
             {item.statLabel}
           </p>
         )}
 
         {/* Subtitle (for year or additional info) */}
         {item.subtitle && (
-          <p className="text-xs text-white/50 mt-1 uppercase tracking-wide">
+          <p className="text-xs sm:text-sm text-white/60 mt-1.5 uppercase tracking-wide">
             {item.subtitle}
           </p>
         )}
 
         {/* Title (optional) */}
         {item.title && !item.statLabel && (
-          <p className="text-sm text-white/60 mt-2">{item.title}</p>
+          <p className="text-sm sm:text-base text-white/70 mt-2">{item.title}</p>
         )}
       </div>
 

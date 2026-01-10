@@ -6,6 +6,8 @@ import { BentoGrid } from "@/components/bento/BentoGrid";
 import { useBentoItems } from "@/components/bento/useBentoItems";
 import { BentoItem } from "@/components/bento/types";
 import ProjectDetailModal from "@/components/portfolio/ProjectDetailModal";
+import VideoPopup from "@/components/VideoPopup";
+import ImageLightbox from "@/components/ImageLightbox";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
@@ -17,6 +19,9 @@ const Portfolio = () => {
   const [sortBy, setSortBy] = useState<string>("recent");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedItem, setSelectedItem] = useState<BentoItem | null>(null);
+  const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  const [isVideoPopupOpen, setIsVideoPopupOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<{url: string; title?: string; subtitle?: string} | null>(null);
 
   const { items, loading } = useBentoItems({
     categoryFilter,
@@ -31,13 +36,22 @@ const Portfolio = () => {
       return;
     }
 
-    // For video items, open the video URL in a new tab
+    // For video items, open in embedded modal
     if (item.type === "video" && item.videoUrl) {
-      window.open(item.videoUrl, "_blank", "noopener,noreferrer");
+      setVideoUrl(item.videoUrl);
+      setIsVideoPopupOpen(true);
       return;
     }
 
-    // Other static items do nothing for now
+    // For image items with a preview, open lightbox
+    if (item.type === "image" && (item.previewImageUrl || item.imageUrl)) {
+      setLightboxImage({
+        url: item.previewImageUrl || item.imageUrl || "",
+        title: item.title,
+        subtitle: item.subtitle,
+      });
+      return;
+    }
   };
 
   return (
@@ -52,7 +66,7 @@ const Portfolio = () => {
           name="keywords"
           content="AI speaker portfolio, keynote speaking projects, Jason Sosa projects, AI consulting engagements, Fortune 500 speaking"
         />
-        <link rel="canonical" href={`${window.location.origin}/portfolio`} />
+        <link rel="canonical" href="https://jasonsosa.com/portfolio" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-background">
@@ -199,6 +213,25 @@ const Portfolio = () => {
           onClose={() => setSelectedItem(null)}
         />
       )}
+
+      {/* Video Popup Modal */}
+      <VideoPopup
+        videoUrl={videoUrl}
+        isOpen={isVideoPopupOpen}
+        onClose={() => {
+          setIsVideoPopupOpen(false);
+          setVideoUrl(null);
+        }}
+      />
+
+      {/* Image Lightbox Modal */}
+      <ImageLightbox
+        imageUrl={lightboxImage?.url || null}
+        title={lightboxImage?.title}
+        subtitle={lightboxImage?.subtitle}
+        isOpen={!!lightboxImage}
+        onClose={() => setLightboxImage(null)}
+      />
     </>
   );
 };

@@ -1,0 +1,11 @@
+# Security Policy for jasonsosa.com
+# https://securitytxt.org/
+
+Contact: mailto:security@jasonsosa.com
+Contact: https://jasonsosa.com/contact
+Expires: 2027-01-11T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://jasonsosa.com/.well-known/security.txt
+
+# If you discover a security vulnerability, please report it responsibly.
+# We appreciate your efforts to keep our website secure.

@@ -11,8 +11,30 @@ interface ImageBentoCellProps {
 
 export function ImageBentoCell({ item, onClick }: ImageBentoCellProps) {
   const [hasError, setHasError] = useState(false);
-  const imageUrl = item.imageUrl || item.previewImageUrl;
-  const hasValidImage = imageUrl && !hasError;
+  const [logoError, setLogoError] = useState(false);
+
+  const previewImage = item.previewImageUrl;
+  const logoImage = item.imageUrl;
+
+  // Detect if the image is likely a logo (not suitable for full-bleed background)
+  const isLikelyLogo = (url: string | undefined): boolean => {
+    if (!url) return false;
+    const lowerUrl = url.toLowerCase();
+    // Check for logo indicators in filename/URL
+    if (lowerUrl.includes('logo')) return true;
+    // Check for common logo domains/patterns
+    if (lowerUrl.includes('clearbit')) return true;
+    // Check if preview is same as logo_url (means logo is being used as preview)
+    if (logoImage && previewImage && logoImage === previewImage) return true;
+    return false;
+  };
+
+  // Determine display mode:
+  // - If preview image exists AND is not a logo, use as full background
+  // - If only logo OR preview is actually a logo, show constrained
+  const previewIsLogo = isLikelyLogo(previewImage);
+  const hasRealPreviewImage = previewImage && !hasError && !previewIsLogo;
+  const hasLogoToShow = (logoImage && !logoError) || (previewImage && previewIsLogo && !hasError);
 
   return (
     <div
@@ -29,50 +51,66 @@ export function ImageBentoCell({ item, onClick }: ImageBentoCellProps) {
       role="button"
       aria-label={item.title ? `View project: ${item.title}` : "View project"}
     >
-      {/* Image or Dark Placeholder */}
-      {hasValidImage ? (
-        <img
-          src={imageUrl}
-          alt={item.title || "Project image"}
-          loading="lazy"
-          onError={() => setHasError(true)}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-      ) : (
+      {/* Mode 1: Full background image (for actual photos/previews - NOT logos) */}
+      {hasRealPreviewImage && (
+        <>
+          <img
+            src={previewImage}
+            alt={item.title || "Project image"}
+            loading="lazy"
+            onError={() => setHasError(true)}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          {/* Gradient overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+        </>
+      )}
+
+      {/* Mode 2: Logo - centered and constrained (NOT stretched as background) */}
+      {!hasRealPreviewImage && hasLogoToShow && (
+        <div className="absolute inset-0 flex items-center justify-center p-8 bg-gradient-to-br from-white/[0.06] to-white/[0.02]">
+          <img
+            src={logoImage || previewImage}
+            alt={item.subtitle || item.title || "Logo"}
+            loading="lazy"
+            onError={() => logoImage ? setLogoError(true) : setHasError(true)}
+            className={cn(
+              "max-w-[65%] max-h-[45%] w-auto h-auto object-contain",
+              "filter brightness-0 invert opacity-80",
+              "transition-all duration-300",
+              "group-hover:opacity-100 group-hover:scale-105"
+            )}
+          />
+        </div>
+      )}
+
+      {/* Mode 3: No image - placeholder */}
+      {!hasRealPreviewImage && !hasLogoToShow && (
         <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent flex items-center justify-center">
           <ImageIcon className="w-12 h-12 text-white/20" />
         </div>
       )}
 
-      {/* Hover overlay with info */}
+      {/* Content overlay - always visible at bottom */}
       <div
         className={cn(
-          "absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent",
-          "opacity-0 group-hover:opacity-100 transition-opacity duration-300",
-          "flex flex-col justify-end p-4 sm:p-6"
+          "absolute inset-x-0 bottom-0 flex flex-col justify-end p-5 sm:p-6",
+          // Add gradient background for logo mode
+          !hasRealPreviewImage && hasLogoToShow && "bg-gradient-to-t from-black/80 via-black/50 to-transparent pt-16"
         )}
       >
         {item.category && (
-          <Badge variant="secondary" className="w-fit mb-2 bg-accent/20 text-accent border-accent/30">
+          <Badge variant="secondary" className="w-fit mb-2 bg-accent/30 text-accent border-accent/40 text-xs font-semibold">
             {item.category}
           </Badge>
         )}
         {item.title && (
-          <h3 className="text-lg font-semibold text-white leading-tight">
+          <h3 className="text-lg sm:text-xl font-bold text-white leading-tight drop-shadow-lg">
             {item.title}
           </h3>
         )}
         {item.subtitle && (
-          <p className="text-sm text-white/70 mt-1">{item.subtitle}</p>
-        )}
-      </div>
-
-      {/* Always visible subtle title at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:opacity-0 transition-opacity">
-        {item.title && (
-          <h3 className="text-sm font-medium text-white/90 truncate">
-            {item.title}
-          </h3>
+          <p className="text-sm text-white/80 mt-1.5 drop-shadow-md">{item.subtitle}</p>
         )}
       </div>
 

@@ -30,3 +30,4 @@ dist-ssr
 
 # Screenshots from visual testing
 screenshots/
+.vercel

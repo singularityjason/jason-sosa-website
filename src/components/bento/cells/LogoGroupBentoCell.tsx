@@ -71,27 +71,27 @@ export function LogoGroupBentoCell({ item, onClick }: LogoGroupBentoCellProps) {
     >
       {/* Title */}
       {item.title && (
-        <div className="absolute top-0 left-0 right-0 p-4 z-10">
-          <p className="text-xs font-medium text-white/50 uppercase tracking-widest">
+        <div className="absolute top-0 left-0 right-0 p-5 z-10">
+          <p className="text-sm font-semibold text-white/70 uppercase tracking-wider">
             {item.title}
           </p>
         </div>
       )}
 
       {/* Logo grid - supports up to 9 logos in 3x3 layout */}
-      <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-6 pt-12">
+      <div className="absolute inset-0 flex items-center justify-center p-5 sm:p-6 pt-14">
         <div className={cn(
-          "grid grid-cols-3 w-full max-w-lg",
+          "grid grid-cols-3 w-full max-w-md mx-auto",
           logos.length > 6
-            ? "gap-x-4 gap-y-3 sm:gap-x-6 sm:gap-y-4"
-            : "gap-x-6 gap-y-4 sm:gap-x-8 sm:gap-y-6"
+            ? "gap-4 sm:gap-5"
+            : "gap-5 sm:gap-6"
         )}>
           {logos.slice(0, 9).map((logo, index) => (
             <div
               key={index}
               className={cn(
-                "flex items-center justify-center",
-                logos.length > 6 ? "h-12 sm:h-16" : "h-14 sm:h-20"
+                "flex items-center justify-center bg-white/5 rounded-lg p-2",
+                logos.length > 6 ? "h-14 sm:h-16" : "h-16 sm:h-20"
               )}
             >
               <LogoWithFallback logo={logo} index={index} />
@@ -99,9 +99,6 @@ export function LogoGroupBentoCell({ item, onClick }: LogoGroupBentoCellProps) {
           ))}
         </div>
       </div>
-
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
     </div>
   );
 }
