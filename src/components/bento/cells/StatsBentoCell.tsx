@@ -21,26 +21,50 @@ export function StatsBentoCell({ item, onClick }: StatsBentoCellProps) {
       onKeyDown={(e) => e.key === "Enter" && onClick?.()}
       tabIndex={0}
       role="button"
-      aria-label={item.statLabel ? `${item.statValue} ${item.statLabel}` : item.statValue || "View stat"}
+      aria-label={item.statLabel ? `${item.statValue || ''} ${item.statLabel}`.trim() : item.statValue || item.title || "View stat"}
     >
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
-        {/* Stat value */}
-        <div
-          className={cn(
-            "text-4xl sm:text-5xl font-bold",
-            "bg-gradient-to-r from-white via-white/90 to-accent/80 bg-clip-text text-transparent",
-            "transition-all duration-300",
-            "group-hover:scale-105"
-          )}
-        >
-          {item.statValue}
-        </div>
+        {/* Logo (if provided) */}
+        {item.logoUrl && (
+          <img
+            src={item.logoUrl}
+            alt={item.title || item.statLabel || "Logo"}
+            className={cn(
+              "h-10 sm:h-12 w-auto object-contain mb-3",
+              "transition-all duration-300",
+              "group-hover:scale-105",
+              "brightness-0 invert opacity-90"
+            )}
+          />
+        )}
+
+        {/* Stat value (only show if no logo, or as subtitle with logo) */}
+        {(!item.logoUrl || item.subtitle) && item.statValue && (
+          <div
+            className={cn(
+              item.logoUrl ? "text-xl sm:text-2xl" : "text-4xl sm:text-5xl",
+              "font-bold",
+              "bg-gradient-to-r from-white via-white/90 to-accent/80 bg-clip-text text-transparent",
+              "transition-all duration-300",
+              "group-hover:scale-105"
+            )}
+          >
+            {item.statValue}
+          </div>
+        )}
 
         {/* Stat label */}
         {item.statLabel && (
           <p className="text-sm text-white/70 mt-2 uppercase tracking-wider font-medium">
             {item.statLabel}
+          </p>
+        )}
+
+        {/* Subtitle (for year or additional info) */}
+        {item.subtitle && (
+          <p className="text-xs text-white/50 mt-1 uppercase tracking-wide">
+            {item.subtitle}
           </p>
         )}
 

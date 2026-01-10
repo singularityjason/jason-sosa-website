@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import SkipLink from "@/components/SkipLink";
+import { AuthProvider } from "@/contexts/AuthContext";
+import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 
 // Create a loading component
 const PageLoader = () => (
@@ -43,38 +45,51 @@ const Speaking = lazy(() => import("./pages/Speaking"));
 const Topics = lazy(() => import("./pages/Topics"));
 const SpeakerKit = lazy(() => import("./pages/SpeakerKit"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Login = lazy(() => import("./pages/Login"));
+const Admin = lazy(() => import("./pages/Admin"));
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Helmet>
-        <html lang="en" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta name="theme-color" content="#000000" />
-      </Helmet>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <SkipLink />
-        <Suspense fallback={<PageLoader />}>
-          <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/topics" element={<Topics />} />
-            <Route path="/speaking" element={<Speaking />} />
-            <Route path="/speaker-kit" element={<SpeakerKit />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy" element={<Index />} /> {/* Placeholder - will create later */}
-            <Route path="/terms" element={<Index />} /> {/* Placeholder - will create later */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </TooltipProvider>
+    <AuthProvider>
+      <TooltipProvider>
+        <Helmet>
+          <html lang="en" />
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+          <meta name="theme-color" content="#000000" />
+        </Helmet>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <SkipLink />
+          <Suspense fallback={<PageLoader />}>
+            <ScrollToTop />
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/topics" element={<Topics />} />
+              <Route path="/speaking" element={<Speaking />} />
+              <Route path="/speaker-kit" element={<SpeakerKit />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Index />} /> {/* Placeholder - will create later */}
+              <Route path="/terms" element={<Index />} /> {/* Placeholder - will create later */}
+              <Route path="/login" element={<Login />} />
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedRoute>
+                    <Admin />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </TooltipProvider>
+    </AuthProvider>
   </QueryClientProvider>
 );
 

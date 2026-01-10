@@ -40,7 +40,7 @@ function LogoWithFallback({
       loading="lazy"
       onError={() => setHasError(true)}
       className={cn(
-        "max-w-full max-h-full object-contain",
+        "max-h-8 sm:max-h-10 w-auto object-contain",
         "filter grayscale-[50%] opacity-70",
         "transition-all duration-300",
         "group-hover:grayscale-0 group-hover:opacity-100"
@@ -78,13 +78,21 @@ export function LogoGroupBentoCell({ item, onClick }: LogoGroupBentoCellProps) {
         </div>
       )}
 
-      {/* Logo grid */}
-      <div className="absolute inset-0 flex items-center justify-center p-4 pt-10">
-        <div className="grid grid-cols-3 gap-4 sm:gap-6 w-full max-w-md">
-          {logos.slice(0, 6).map((logo, index) => (
+      {/* Logo grid - supports up to 9 logos in 3x3 layout */}
+      <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-6 pt-12">
+        <div className={cn(
+          "grid grid-cols-3 w-full max-w-lg",
+          logos.length > 6
+            ? "gap-x-4 gap-y-3 sm:gap-x-6 sm:gap-y-4"
+            : "gap-x-6 gap-y-4 sm:gap-x-8 sm:gap-y-6"
+        )}>
+          {logos.slice(0, 9).map((logo, index) => (
             <div
               key={index}
-              className="flex items-center justify-center aspect-[3/2]"
+              className={cn(
+                "flex items-center justify-center",
+                logos.length > 6 ? "h-8 sm:h-10" : "h-10 sm:h-14"
+              )}
             >
               <LogoWithFallback logo={logo} index={index} />
             </div>

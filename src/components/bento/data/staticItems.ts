@@ -6,20 +6,8 @@ import { BentoItem } from "../types";
 // ============================================
 
 // Featured Speaking - Hero content for ICP
+// NOTE: TEDx content removed - comes from Supabase projects table to avoid duplication
 export const speakingItems: BentoItem[] = [
-  {
-    id: "speaking-tedx",
-    type: "video",
-    size: "large",
-    title: "TEDx Grand Rapids 2014",
-    subtitle: "The Coming Transhuman Era",
-    videoUrl: "https://www.youtube.com/watch?v=1Ugo2KEV2XQ",
-    previewImageUrl: "/lovable-uploads/tedx-grand-rapids-1.jpg",
-    category: "Speaking",
-    source: "static",
-    featured: true,
-    order: 1,
-  },
   {
     id: "speaking-enterprise",
     type: "text",
@@ -35,7 +23,7 @@ export const speakingItems: BentoItem[] = [
   },
 ];
 
-// Speaking Stats - Key metrics for event planners
+// Speaking Stats - Key metrics for event planners (spread throughout layout)
 export const speakingStatsItems: BentoItem[] = [
   {
     id: "stat-keynotes",
@@ -44,7 +32,7 @@ export const speakingStatsItems: BentoItem[] = [
     statValue: "100+",
     statLabel: "Keynotes Delivered",
     source: "static",
-    order: 3,
+    order: 4,  // After clients, before conference
   },
   {
     id: "stat-countries",
@@ -53,7 +41,7 @@ export const speakingStatsItems: BentoItem[] = [
     statValue: "10+",
     statLabel: "Countries",
     source: "static",
-    order: 4,
+    order: 6,  // After conference, before testimonial
   },
   {
     id: "stat-continents",
@@ -62,7 +50,7 @@ export const speakingStatsItems: BentoItem[] = [
     statValue: "5",
     statLabel: "Continents",
     source: "static",
-    order: 5,
+    order: 8,  // After testimonial
   },
 ];
 
@@ -72,8 +60,7 @@ export const awardItems: BentoItem[] = [
     id: "award-time",
     type: "stats",
     size: "tall",
-    title: "Time Magazine",
-    statValue: "TIME",
+    logoUrl: "/lovable-uploads/time-inc-logo.png",
     statLabel: "Top Startup NYC",
     source: "static",
     order: 10,
@@ -82,11 +69,98 @@ export const awardItems: BentoItem[] = [
     id: "award-bi",
     type: "stats",
     size: "medium",
-    title: "Business Insider",
-    statValue: "TOP 25",
-    statLabel: "Startups to Watch",
+    logoUrl: "/lovable-uploads/business-insider-logo.png",
+    statLabel: "Top 25 Startups to Watch",
     source: "static",
     order: 11,
+  },
+];
+
+// Projects with missing Supabase images - moved to Supabase
+// (Previously fallbackProjectItems - now managed via admin)
+export const fallbackProjectItems: BentoItem[] = [];
+
+// ============================================
+// SPEAKING ENGAGEMENT ITEMS - MOVED TO SUPABASE
+// These are now managed via the admin panel
+// ============================================
+export const speakingEngagementItems: BentoItem[] = [];
+
+// ============================================
+// VIDEO ITEMS - MOVED TO SUPABASE
+// These are now managed via the admin panel
+// ============================================
+export const videoItems: BentoItem[] = [];
+
+// ============================================
+// TESTIMONIAL ITEMS (from home page)
+// ============================================
+export const testimonialItems: BentoItem[] = [
+  {
+    id: "testimonial-shahid",
+    type: "text",
+    size: "wide",
+    title: '"Jason brings exceptional energy, enthusiasm, and integrity to every project."',
+    subtitle: "Shahid Chishty, Strategic Investment & Board Advisor",
+    accentColor: "from-green-500/20 via-green-500/5 to-transparent",
+    category: "Speaking",
+    source: "static",
+    order: 60,
+  },
+  {
+    id: "testimonial-moore",
+    type: "text",
+    size: "medium",
+    title: '"Jason brings passion, vision, and a rare breadth of skills."',
+    subtitle: "Stephen Moore PhD, VP of AI & Data Science",
+    accentColor: "from-blue-500/20 via-blue-500/5 to-transparent",
+    category: "Speaking",
+    source: "static",
+    order: 61,
+  },
+  {
+    id: "testimonial-higley",
+    type: "text",
+    size: "medium",
+    title: '"Jason\'s drive, focus, and energy are unmatched."',
+    subtitle: "Tom Higley, Founder & CEO X Genesis | Techstars Mentor",
+    accentColor: "from-purple-500/20 via-purple-500/5 to-transparent",
+    category: "Speaking",
+    source: "static",
+    order: 62,
+  },
+  {
+    id: "testimonial-career-coach",
+    type: "text",
+    size: "wide",
+    title: '"One of the most intelligent, mentally sharp entrepreneurship consultants I\'ve hired."',
+    subtitle: "Executive Career Coach, Private Equity & Venture Capital",
+    accentColor: "from-amber-500/20 via-amber-500/5 to-transparent",
+    category: "Speaking",
+    source: "static",
+    order: 63,
+  },
+  {
+    id: "testimonial-fund-advisor",
+    type: "text",
+    size: "medium",
+    title: '"He exceeded all expectations on strategic advisory and executive coaching."',
+    subtitle: "Tech Startup Fund Advisor, Venture Capital & Innovation",
+    accentColor: "from-cyan-500/20 via-cyan-500/5 to-transparent",
+    category: "Speaking",
+    source: "static",
+    order: 64,
+  },
+  {
+    id: "testimonial-event-coordinator",
+    type: "text",
+    size: "medium",
+    title: '"Jason delivered an outstanding keynote at our wealth management conference."',
+    subtitle: "Event Coordinator, Financial Wealth Management Summit",
+    accentColor: "from-rose-500/20 via-rose-500/5 to-transparent",
+    category: "Speaking",
+    source: "static",
+    order: 65,
   },
 ];
 
@@ -140,7 +214,7 @@ export const companyItems: BentoItem[] = [
   },
 ];
 
-// Impact Stats - Big numbers
+// Impact Stats - Big numbers (interspersed with companies)
 export const impactStatsItems: BentoItem[] = [
   {
     id: "stat-capital",
@@ -149,7 +223,7 @@ export const impactStatsItems: BentoItem[] = [
     statValue: "$100M+",
     statLabel: "Capital Facilitated",
     source: "static",
-    order: 20,
+    order: 14,  // Before companies
   },
   {
     id: "stat-acquisitions",
@@ -158,7 +232,7 @@ export const impactStatsItems: BentoItem[] = [
     statValue: "3",
     statLabel: "Companies Acquired",
     source: "static",
-    order: 21,
+    order: 17,  // Between companies
   },
 ];
 
@@ -184,19 +258,23 @@ export const academicItems: BentoItem[] = [
   },
 ];
 
-// Media Appearances - Logo Group (using text fallbacks for missing logos)
+// Media Appearances - Logo Group (9 logos - expanded from 6)
 export const mediaLogosItem: BentoItem = {
   id: "media-logos",
   type: "logoGroup",
-  size: "wide",
+  size: "large",  // Increased to large to fit 9 logos
   title: "Featured In",
   logos: [
     { name: "Forbes", url: "/lovable-uploads/3c6d8a93-ffcd-4d1e-ab79-30730f5a8bc3.png" },
     { name: "Bloomberg", url: "/lovable-uploads/bloomberg-preview.png" },
     { name: "CNN", url: "/lovable-uploads/c0ae8564-b87c-49b6-87e1-f959e7949cd9.png" },
-    { name: "Wired", url: "/lovable-uploads/face-detection-verge.jpg" },
+    { name: "Wired", url: "/lovable-uploads/wired-logo.png" },
     { name: "Tech in Asia", url: "/lovable-uploads/675c8d4a-900e-4b8e-8ae6-0dadf20c0648.png" },
     { name: "The Verge", url: "/lovable-uploads/face-detection-verge.jpg" },
+    // Additional logos from home page
+    { name: "Entrepreneur", url: "/lovable-uploads/1e9233d3-5592-410f-914c-aedf10827631.png" },
+    { name: "Esquire", url: "/lovable-uploads/9a8c7dcf-ce96-4254-882b-d04aa9cf534b.png" },
+    { name: "Fast Company", url: "/lovable-uploads/a51ada11-80d2-4476-b764-841b30596518.png" },
   ],
   source: "static",
   order: 30,
@@ -218,7 +296,7 @@ export const speakingClientsItem: BentoItem = {
   ],
   source: "static",
   featured: true,
-  order: 6,
+  order: 3,  // Right after enterprise strategy
 };
 
 // Conference Circuit
@@ -232,18 +310,17 @@ export const conferenceItem: BentoItem = {
   accentColor: "from-orange-500/20 via-orange-500/5 to-transparent",
   category: "Speaking",
   source: "static",
-  order: 7,
+  order: 5,  // After keynotes stat
 };
 
 // Techstars TV Show highlight
 export const techstarsItem: BentoItem = {
   id: "techstars-tv",
-  type: "text",
+  type: "stats",
   size: "medium",
-  title: "Bloomberg Techstars",
-  subtitle: "Inaugural Class",
-  description: "Later became a TV show",
-  accentColor: "from-sky-500/20 via-sky-500/5 to-transparent",
+  logoUrl: "/lovable-uploads/techstars-logo.png",
+  statLabel: "Inaugural Class",
+  subtitle: "2011",
   source: "static",
   order: 12,
 };
@@ -259,29 +336,48 @@ export const testimonialItem: BentoItem = {
   accentColor: "from-green-500/20 via-green-500/5 to-transparent",
   category: "Speaking",
   source: "static",
-  order: 8,
+  order: 7,  // After countries stat
 };
 
-// Combine all static items in narrative order
+// Combine all static items - stats interspersed throughout for visual variety
+// NOTE: TEDx video removed - comes from Supabase to avoid duplication
 export const allStaticItems: BentoItem[] = [
-  // Speaking (ICP-focused, top priority)
-  ...speakingItems,
-  ...speakingStatsItems,
-  speakingClientsItem,
-  conferenceItem,
-  testimonialItem,
+  // Row 1: Hero speaking content (TEDx comes from Supabase)
+  speakingItems[0],        // Enterprise AI Strategy (wide) - order 2
 
-  // Awards & Credibility
-  ...awardItems,
-  techstarsItem,
+  // Row 2: Clients + First stat
+  speakingClientsItem,     // Keynote Clients (large) - order 3
+  speakingStatsItems[0],   // 100+ Keynotes (wide) - order 4
 
-  // Companies Built
-  ...companyItems,
+  // Row 3: Text + Stats mixed
+  conferenceItem,          // Global Conferences (medium) - order 5
+  speakingStatsItems[1],   // 10+ Countries (medium) - order 6
+  testimonialItem,         // Testimonial (wide) - order 7
+  speakingStatsItems[2],   // 5 Continents (medium) - order 8
 
-  // Impact Numbers
-  ...impactStatsItems,
+  // Row 4: Awards
+  awardItems[0],           // TIME (tall) - order 10
+  awardItems[1],           // Business Insider (medium) - order 11
+  techstarsItem,           // Bloomberg Techstars (medium) - order 12
 
-  // Academic & Media
-  ...academicItems,
-  mediaLogosItem,
+  // Row 5: Impact stat + Companies
+  impactStatsItems[0],     // $100M+ (wide) - order 14
+  companyItems[0],         // IMRSV (large) - order 15
+  companyItems[1],         // Orchestrator (wide) - order 16
+
+  // Row 6: Acquisitions stat + More companies
+  impactStatsItems[1],     // 3 Acquisitions (wide) - order 17
+  companyItems[2],         // Azara AI (medium) - order 18
+  companyItems[3],         // Radio Research (medium) - order 19
+
+  // Row 7: Academic + Media
+  academicItems[0],        // IEEE (medium) - order 22
+  academicItems[1],        // 25+ Years (medium) - order 24
+  mediaLogosItem,          // Featured In (large) - order 30
+
+  // Testimonial items (static - not editable via admin)
+  ...testimonialItems,
+
+  // NOTE: Video items, speaking engagements, and project items
+  // have been moved to Supabase and are now managed via admin panel
 ];

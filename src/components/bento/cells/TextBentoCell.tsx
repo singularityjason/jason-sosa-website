@@ -14,8 +14,8 @@ export function TextBentoCell({ item, onClick }: TextBentoCellProps) {
     <div
       className={cn(
         "relative h-full overflow-hidden rounded-xl cursor-pointer group",
-        "bg-gradient-to-br from-white/[0.08] to-white/[0.02]",
-        "border border-white/10",
+        "bg-gradient-to-br from-white/[0.12] to-white/[0.04]",
+        "border border-white/15",
         "transition-all duration-500",
         "hover:border-accent/40 hover:shadow-xl hover:shadow-accent/10",
         "bento-cell-focus"
@@ -26,10 +26,10 @@ export function TextBentoCell({ item, onClick }: TextBentoCellProps) {
       role="button"
       aria-label={item.title || "View details"}
     >
-      {/* Gradient accent overlay */}
+      {/* Gradient accent overlay - visible by default at 40%, full on hover */}
       <div
         className={cn(
-          "absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100",
+          "absolute inset-0 bg-gradient-to-br opacity-40 group-hover:opacity-100",
           "transition-opacity duration-500",
           accentColor
         )}
@@ -68,12 +68,12 @@ export function TextBentoCell({ item, onClick }: TextBentoCellProps) {
         </div>
       </div>
 
-      {/* Decorative corner accent */}
+      {/* Decorative corner accent - subtle by default */}
       <div
         className={cn(
           "absolute top-0 right-0 w-24 h-24",
           "bg-gradient-to-bl from-accent/10 to-transparent",
-          "opacity-0 group-hover:opacity-100",
+          "opacity-50 group-hover:opacity-100",
           "transition-opacity duration-500"
         )}
       />

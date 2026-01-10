@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { BentoItem } from "../types";
 import { Play } from "lucide-react";
@@ -19,7 +20,9 @@ function getVimeoThumbnail(url: string): string | null {
 }
 
 export function VideoBentoCell({ item, onClick }: VideoBentoCellProps) {
-  const getThumbnail = () => {
+  const [hasError, setHasError] = useState(false);
+
+  const getThumbnail = (): string | null => {
     if (item.previewImageUrl) return item.previewImageUrl;
     if (item.videoUrl) {
       if (item.videoUrl.includes("youtube") || item.videoUrl.includes("youtu.be")) {
@@ -29,16 +32,18 @@ export function VideoBentoCell({ item, onClick }: VideoBentoCellProps) {
         return getVimeoThumbnail(item.videoUrl);
       }
     }
-    return item.imageUrl || "/placeholder.svg";
+    return item.imageUrl || null;
   };
 
   const thumbnail = getThumbnail();
+  const hasValidThumbnail = thumbnail && !hasError;
 
   return (
     <div
       className={cn(
         "relative h-full overflow-hidden rounded-xl cursor-pointer group",
-        "bg-muted transition-all duration-500",
+        "bg-gradient-to-br from-white/[0.08] to-white/[0.02] transition-all duration-500",
+        "border border-white/10",
         "hover:shadow-2xl hover:shadow-accent/20",
         "bento-cell-focus"
       )}
@@ -48,16 +53,18 @@ export function VideoBentoCell({ item, onClick }: VideoBentoCellProps) {
       role="button"
       aria-label={item.title ? `Play video: ${item.title}` : "Play video"}
     >
-      {/* Thumbnail */}
-      <img
-        src={thumbnail || "/placeholder.svg"}
-        alt={item.title || "Video thumbnail"}
-        loading="lazy"
-        onError={(e) => {
-          e.currentTarget.src = "/placeholder.svg";
-        }}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-      />
+      {/* Thumbnail or Dark Placeholder */}
+      {hasValidThumbnail ? (
+        <img
+          src={thumbnail}
+          alt={item.title || "Video thumbnail"}
+          loading="lazy"
+          onError={() => setHasError(true)}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+        />
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
+      )}
 
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />

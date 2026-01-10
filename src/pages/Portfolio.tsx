@@ -13,7 +13,7 @@ import { Search } from "lucide-react";
 
 const Portfolio = () => {
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
-  const [sortBy, setSortBy] = useState<string>("featured");
+  const [sortBy, setSortBy] = useState<string>("recent");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedItem, setSelectedItem] = useState<BentoItem | null>(null);
 
@@ -24,11 +24,19 @@ const Portfolio = () => {
   });
 
   const handleItemClick = (item: BentoItem) => {
-    // Only open modal for Supabase projects with project data
+    // Open modal for Supabase projects with project data
     if (item.source === "supabase" && item.projectData) {
       setSelectedItem(item);
+      return;
     }
-    // Static items could link elsewhere or do nothing for now
+
+    // For video items, open the video URL in a new tab
+    if (item.type === "video" && item.videoUrl) {
+      window.open(item.videoUrl, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    // Other static items do nothing for now
   };
 
   return (

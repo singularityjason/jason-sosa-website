@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { BentoItem } from "../types";
 import { Badge } from "@/components/ui/badge";
+import { ImageIcon } from "lucide-react";
 
 interface ImageBentoCellProps {
   item: BentoItem;
@@ -8,13 +10,16 @@ interface ImageBentoCellProps {
 }
 
 export function ImageBentoCell({ item, onClick }: ImageBentoCellProps) {
-  const imageUrl = item.imageUrl || item.previewImageUrl || "/placeholder.svg";
+  const [hasError, setHasError] = useState(false);
+  const imageUrl = item.imageUrl || item.previewImageUrl;
+  const hasValidImage = imageUrl && !hasError;
 
   return (
     <div
       className={cn(
         "relative h-full overflow-hidden rounded-xl cursor-pointer group",
-        "bg-muted transition-all duration-300",
+        "bg-gradient-to-br from-white/[0.08] to-white/[0.02] transition-all duration-300",
+        "border border-white/10",
         "hover:shadow-xl hover:shadow-accent/10",
         "bento-cell-focus"
       )}
@@ -24,16 +29,20 @@ export function ImageBentoCell({ item, onClick }: ImageBentoCellProps) {
       role="button"
       aria-label={item.title ? `View project: ${item.title}` : "View project"}
     >
-      {/* Image */}
-      <img
-        src={imageUrl}
-        alt={item.title || "Project image"}
-        loading="lazy"
-        onError={(e) => {
-          e.currentTarget.src = "/placeholder.svg";
-        }}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-      />
+      {/* Image or Dark Placeholder */}
+      {hasValidImage ? (
+        <img
+          src={imageUrl}
+          alt={item.title || "Project image"}
+          loading="lazy"
+          onError={() => setHasError(true)}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent flex items-center justify-center">
+          <ImageIcon className="w-12 h-12 text-white/20" />
+        </div>
+      )}
 
       {/* Hover overlay with info */}
       <div
