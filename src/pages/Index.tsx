@@ -19,7 +19,7 @@ const Index = () => {
       const linkEl = document.createElement('link');
       linkEl.rel = 'preload';
       linkEl.as = 'image';
-      linkEl.href = '/lovable-uploads/6b6aaf2b-ee52-4c17-b6e7-ce5826ecc91f.png';
+      linkEl.href = '/lovable-uploads/6b6aaf2b-ee52-4c17-b6e7-ce5826ecc91f.webp';
       linkEl.setAttribute('fetchPriority', 'high');
       document.head.appendChild(linkEl);
     };
@@ -57,7 +57,7 @@ const Index = () => {
     };
     
     // Execute preloading in sequence for better prioritization
-    if (!document.querySelector('link[rel="preload"][href*="6b6aaf2b-ee52-4c17-b6e7-ce5826ecc91f.png"]')) {
+    if (!document.querySelector('link[rel="preload"][href*="6b6aaf2b-ee52-4c17-b6e7-ce5826ecc91f.webp"]')) {
       preloadBackgroundImage();
     }
     
@@ -85,11 +85,11 @@ const Index = () => {
         <link rel="preconnect" href="https://f.vimeocdn.com" crossOrigin="anonymous" />
         
         {/* Preload hero image with high priority */}
-        <link 
-          rel="preload" 
-          href="/lovable-uploads/6b6aaf2b-ee52-4c17-b6e7-ce5826ecc91f.png" 
-          as="image" 
-          type="image/png"
+        <link
+          rel="preload"
+          href="/lovable-uploads/6b6aaf2b-ee52-4c17-b6e7-ce5826ecc91f.webp"
+          as="image"
+          type="image/webp"
           fetchPriority="high"
         />
         

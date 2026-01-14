@@ -7,7 +7,7 @@ const HeroSection = () => {
       zIndex: 1
     }}>
         <div className="absolute inset-0 bg-cover bg-center" style={{
-        backgroundImage: `url('/lovable-uploads/6b6aaf2b-ee52-4c17-b6e7-ce5826ecc91f.png')`,
+        backgroundImage: `url('/lovable-uploads/6b6aaf2b-ee52-4c17-b6e7-ce5826ecc91f.webp')`,
         zIndex: 2
       }} role="img" aria-label="Jason Sosa at a keynote event"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-background" style={{

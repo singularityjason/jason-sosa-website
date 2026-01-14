@@ -23,28 +23,28 @@ const VideoPortfolioSection = () => {
       id: "2",
       title: "The Coming Transhuman Era: Jason Sosa at TEDxGrandRapids",
       description: "Sosa is the founder and CEO of IMRSV, a computer vision and artificial intelligence company and was named one of \"10 Startups to Watch in NYC\" by Time Inc. and one of \"25 Hot and...",
-      thumbnail: "/lovable-uploads/adc79355-2449-45f5-9874-d51fc16986b6.png",
+      thumbnail: "/lovable-uploads/adc79355-2449-45f5-9874-d51fc16986b6.webp",
       youtubeUrl: "https://www.youtube.com/watch?v=1Ugo2KEV2XQ"
     },
     {
       id: "1",
       title: "Push Humanity Forward",
       description: "Jason Sosa shares his vision on how we can collectively push humanity forward through technological innovation, ethical AI development, and creating systems that benefit all of humanity.",
-      thumbnail: "/lovable-uploads/26273aba-8a72-473f-846a-12f0f56060a1.png",
+      thumbnail: "/lovable-uploads/26273aba-8a72-473f-846a-12f0f56060a1.webp",
       youtubeUrl: "https://www.youtube.com/watch?v=4T0HZYJx5Qs"
     },
     {
       id: "3",
       title: "A.I. Expert Jason Sosa Discusses Overcoming Imposter Syndrome And Qualifying Himself In High Tech",
       description: "Much more at: www.fullexposurepodcast.com/sosa Jason Sosa - AI Strategist & Entrepreneur. Jason Sosa is one of the top artificial intelligence strategists working today. Fo...",
-      thumbnail: "/lovable-uploads/b3f5d6a5-055c-4723-b8fe-29447e89628c.png",
+      thumbnail: "/lovable-uploads/b3f5d6a5-055c-4723-b8fe-29447e89628c.webp",
       youtubeUrl: "https://www.youtube.com/watch?v=gcfeeonT-VI"
     },
     {
       id: "4",
       title: "What is the Future of Work?",
       description: "The future of work is a self-sustaining company of information and talent. Choose to embrace...",
-      thumbnail: "/lovable-uploads/b9582220-eed0-40e5-af4b-bc84df0580c5.png",
+      thumbnail: "/lovable-uploads/b9582220-eed0-40e5-af4b-bc84df0580c5.webp",
       youtubeUrl: "https://www.youtube.com/watch?v=2Dyc61j0V2E"
     }
   ];

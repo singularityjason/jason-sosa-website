@@ -30,7 +30,7 @@ const TopicsSection = () => {
   return <section id="topics" className="py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16 relative min-h-[600px] md:min-h-[700px] bg-cover bg-center bg-no-repeat rounded-lg overflow-hidden" style={{
-        backgroundImage: `url('/lovable-uploads/da672dda-9e6e-4ba1-a89b-107828203bbe.png')`
+        backgroundImage: `url('/lovable-uploads/da672dda-9e6e-4ba1-a89b-107828203bbe.webp')`
       }}>
           {/* Gradient overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
