@@ -119,7 +119,7 @@ const Admin = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-4">
               <img
-                src="/lovable-uploads/40a45ce3-148b-4900-8242-7a229b39f300.png"
+                src="/lovable-uploads/40a45ce3-148b-4900-8242-7a229b39f300.webp"
                 alt="Jason Sosa"
                 className="h-8 w-auto"
               />

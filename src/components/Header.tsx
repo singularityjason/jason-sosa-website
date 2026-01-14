@@ -100,7 +100,7 @@ const Header = () => {
         <nav className="flex items-center justify-between">
           <div className="flex items-center space-x-4 md:space-x-12">
             <a href="/" onClick={handleLogoClick}>
-              <img src="/lovable-uploads/40a45ce3-148b-4900-8242-7a229b39f300.png" alt="Jason Sosa Logo" className="h-[60px] md:h-[72px] w-auto" />
+              <img src="/lovable-uploads/40a45ce3-148b-4900-8242-7a229b39f300.webp" alt="Jason Sosa Logo" className="h-[60px] md:h-[72px] w-auto" />
             </a>
             <div className="hidden md:flex space-x-8">
               <Link

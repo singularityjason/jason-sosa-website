@@ -1,6 +1,12 @@
 {
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "jasonsosa.com" }],
+      "destination": "https://www.jasonsosa.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/:path+/",
       "destination": "/:path+",
       "permanent": true
@@ -45,6 +51,15 @@
     },
     {
       "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/lovable-uploads/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

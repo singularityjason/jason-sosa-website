@@ -17,49 +17,49 @@ const PortfolioSection = () => {
   const portfolioItems: PortfolioItem[] = [
     {
       name: "Bank of America",
-      logo: "/lovable-uploads/66ad1914-4df8-42f6-b3a5-2a96f74a6f78.png",
+      logo: "/lovable-uploads/66ad1914-4df8-42f6-b3a5-2a96f74a6f78.webp",
       eventTitle: "Future of Finance Summit",
       eventDescription: "Keynote on AI implementation in banking and financial services, discussing the transformation of customer experience through machine learning algorithms."
     },
     {
       name: "Singularity University",
-      logo: "/lovable-uploads/2949721d-3613-4262-b4b3-abf89eb5003d.png",
+      logo: "/lovable-uploads/2949721d-3613-4262-b4b3-abf89eb5003d.webp",
       eventTitle: "Exponential Technologies Conference",
       eventDescription: "Featured speaker discussing the convergence of AI, blockchain, and transhuman technologies and their implications for future society."
     },
     {
       name: "CityWire Asia",
-      logo: "/lovable-uploads/b934d438-dc2c-472c-95c8-a8a1bc1de795.png",
+      logo: "/lovable-uploads/b934d438-dc2c-472c-95c8-a8a1bc1de795.webp",
       eventTitle: "Wealth Management Forum",
       eventDescription: "Keynote presentation to CityWire Asia Wealth Management on AI and the Future of Money - focus on Bitcoin and AI convergence"
     },
     {
       name: "Stanford Junior University",
-      logo: "/lovable-uploads/ee34652c-0e56-40b5-a5f7-a8ed3c7a1a6c.png",
+      logo: "/lovable-uploads/ee34652c-0e56-40b5-a5f7-a8ed3c7a1a6c.webp",
       eventTitle: "Future of Work Symposium",
       eventDescription: "Guest lecturer on the impact of artificial intelligence on education and workforce development, exploring the human-AI collaboration paradigm."
     },
     {
       name: "Stryker",
-      logo: "/lovable-uploads/a5d82c6b-f512-43a4-a938-88135016f1e7.png",
+      logo: "/lovable-uploads/a5d82c6b-f512-43a4-a938-88135016f1e7.webp",
       eventTitle: "Healthcare Innovation Summit",
       eventDescription: "Keynote on AI applications in medical devices and healthcare innovation, exploring the future of patient care through advanced technologies."
     },
     {
       name: "GVTC",
-      logo: "/lovable-uploads/844b747d-e266-4a0f-afa0-67c466bf26de.png",
+      logo: "/lovable-uploads/844b747d-e266-4a0f-afa0-67c466bf26de.webp",
       eventTitle: "Digital Transformation Conference",
       eventDescription: "Executive presentation on telecommunications evolution and the role of AI in creating smart communication networks."
     },
     {
       name: "Glow",
-      logo: "/lovable-uploads/bb07fffe-fdc8-4fed-9684-eb7b5ebb85de.png",
+      logo: "/lovable-uploads/bb07fffe-fdc8-4fed-9684-eb7b5ebb85de.webp",
       eventTitle: "Tech Startup Summit",
       eventDescription: "Presentation on entrepreneurial insights and the future of agent-to-agent commerce applications with blockchain as the monetary rail."
     },
     {
       name: "Aiken University",
-      logo: "/lovable-uploads/dc63d246-f608-4f2f-abea-a371587422c8.png",
+      logo: "/lovable-uploads/dc63d246-f608-4f2f-abea-a371587422c8.webp",
       eventTitle: "Educational Technology Forum",
       eventDescription: "Featured speaker discussing the integration of AI into educational curricula and preparing students for an AI-augmented future."
     },

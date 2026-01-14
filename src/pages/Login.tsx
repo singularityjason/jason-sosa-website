@@ -51,7 +51,7 @@ const Login = () => {
           {/* Logo */}
           <div className="flex justify-center mb-8">
             <img
-              src="/lovable-uploads/40a45ce3-148b-4900-8242-7a229b39f300.png"
+              src="/lovable-uploads/40a45ce3-148b-4900-8242-7a229b39f300.webp"
               alt="Jason Sosa"
               className="h-12 w-auto"
             />

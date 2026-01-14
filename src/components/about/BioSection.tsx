@@ -9,7 +9,7 @@ const BioSection = () => {
         }}>
             <div className="relative">
               
-              <img src="/lovable-uploads/0381764e-9ae7-4073-a20e-c52956290819.png" alt="Jason Sosa - AI strategist, keynote speaker, and technology entrepreneur" className="rounded-xl object-contain w-full max-h-[700px]" loading="lazy" width="600" height="700" />
+              <img src="/lovable-uploads/0381764e-9ae7-4073-a20e-c52956290819.webp" alt="Jason Sosa - AI strategist, keynote speaker, and technology entrepreneur" className="rounded-xl object-contain w-full max-h-[700px]" loading="lazy" width="600" height="700" />
             </div>
           </div>
           

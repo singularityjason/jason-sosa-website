@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <a href="/" onClick={handleLogoClick} className="inline-block mb-4">
-              <img src="/lovable-uploads/9665de38-19c5-4203-8ea9-2424aba5422e.png" alt="Jason Sosa" className="h-12 w-auto" />
+              <img src="/lovable-uploads/9665de38-19c5-4203-8ea9-2424aba5422e.webp" alt="Jason Sosa" className="h-12 w-auto" />
             </a>
             <p className="text-white/60 mb-6 max-w-md">Jason Sosa is a technologist and keynote speaker on AI and the future of finance. He has delivered keynotes for Bank of America, Samsung, NASDAQ, and Stanford to executive audiences globally.</p>
             <div className="flex space-x-4">

@@ -57,12 +57,12 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
               </div>
             ) : (
               <img
-                src={index === 0 ? "/lovable-uploads/f6f2bfe7-176f-4578-a4be-b4ee164ee41c.png" :
-                    index === 2 ? "/lovable-uploads/02333ef8-afbc-4c99-8ecd-000bef19c1c2.png" :
-                    index === 7 ? "/lovable-uploads/8af1f21b-a603-4388-a246-6e4c6d7a8eee.png" :
-                    index === 8 ? "/lovable-uploads/13358c82-ee00-4772-9729-261553d17027.png" :
+                src={index === 0 ? "/lovable-uploads/f6f2bfe7-176f-4578-a4be-b4ee164ee41c.webp" :
+                    index === 2 ? "/lovable-uploads/02333ef8-afbc-4c99-8ecd-000bef19c1c2.webp" :
+                    index === 7 ? "/lovable-uploads/8af1f21b-a603-4388-a246-6e4c6d7a8eee.webp" :
+                    index === 8 ? "/lovable-uploads/13358c82-ee00-4772-9729-261553d17027.webp" :
                     index === 10 ? "/lovable-uploads/orchestrator-logo.jpg" :
-                    "/lovable-uploads/eca07038-b49e-4ef7-8bf5-1d0427f275a1.png"}
+                    "/lovable-uploads/eca07038-b49e-4ef7-8bf5-1d0427f275a1.webp"}
                 alt={`${item.title} image`}
                 className="rounded-lg h-48 w-auto object-cover shadow-lg border border-white/10 mx-auto"
               />
@@ -151,12 +151,12 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
               </div>
             ) : (
               <img
-                src={index === 0 ? "/lovable-uploads/f6f2bfe7-176f-4578-a4be-b4ee164ee41c.png" :
-                    index === 2 ? "/lovable-uploads/02333ef8-afbc-4c99-8ecd-000bef19c1c2.png" :
-                    index === 7 ? "/lovable-uploads/8af1f21b-a603-4388-a246-6e4c6d7a8eee.png" :
-                    index === 8 ? "/lovable-uploads/13358c82-ee00-4772-9729-261553d17027.png" :
+                src={index === 0 ? "/lovable-uploads/f6f2bfe7-176f-4578-a4be-b4ee164ee41c.webp" :
+                    index === 2 ? "/lovable-uploads/02333ef8-afbc-4c99-8ecd-000bef19c1c2.webp" :
+                    index === 7 ? "/lovable-uploads/8af1f21b-a603-4388-a246-6e4c6d7a8eee.webp" :
+                    index === 8 ? "/lovable-uploads/13358c82-ee00-4772-9729-261553d17027.webp" :
                     index === 10 ? "/lovable-uploads/orchestrator-logo.jpg" :
-                    "/lovable-uploads/eca07038-b49e-4ef7-8bf5-1d0427f275a1.png"}
+                    "/lovable-uploads/eca07038-b49e-4ef7-8bf5-1d0427f275a1.webp"}
                 alt={`${item.title} image`}
                 className="rounded-lg h-36 w-auto object-cover shadow-lg border border-white/10"
               />
