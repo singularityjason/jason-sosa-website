@@ -47,6 +47,8 @@ const SpeakerKit = lazy(() => import("./pages/SpeakerKit"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Login = lazy(() => import("./pages/Login"));
 const Admin = lazy(() => import("./pages/Admin"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
 
 const queryClient = new QueryClient();
 
@@ -73,8 +75,8 @@ const App = () => (
               <Route path="/speaking" element={<Speaking />} />
               <Route path="/speaker-kit" element={<SpeakerKit />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/privacy" element={<Index />} /> {/* Placeholder - will create later */}
-              <Route path="/terms" element={<Index />} /> {/* Placeholder - will create later */}
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
               <Route path="/login" element={<Login />} />
               <Route
                 path="/admin"

@@ -67,6 +67,19 @@ const Portfolio = () => {
           content="AI speaker portfolio, keynote speaking projects, Jason Sosa projects, AI consulting engagements, Fortune 500 speaking"
         />
         <link rel="canonical" href="https://jasonsosa.com/portfolio" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Work - Jason Sosa | AI Keynote Speaking Portfolio" />
+        <meta property="og:description" content="Explore Jason Sosa's portfolio: 100+ keynotes for Fortune 500 companies including Bank of America, Samsung, and Stryker. AI, finance transformation, and Bitcoin expertise." />
+        <meta property="og:url" content="https://jasonsosa.com/portfolio" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://jasonsosa.com/jason-sosa-speaker.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Work - Jason Sosa | AI Keynote Speaking Portfolio" />
+        <meta name="twitter:description" content="Explore Jason Sosa's portfolio: 100+ keynotes for Fortune 500 companies. AI, finance transformation, and Bitcoin expertise." />
+        <meta name="twitter:image" content="https://jasonsosa.com/jason-sosa-speaker.jpg" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-background">

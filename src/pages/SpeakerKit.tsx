@@ -29,6 +29,7 @@ const SpeakerKit = () => {
           name="description"
           content="Download Jason Sosa's speaker kit including one-sheet and full media kit. Professional resources for event planners and speaker bureaus."
         />
+        <link rel="canonical" href="https://jasonsosa.com/speaker-kit" />
         <meta name="robots" content="noindex" />
       </Helmet>
 
