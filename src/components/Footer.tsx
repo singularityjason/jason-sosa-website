@@ -47,7 +47,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-white font-medium mb-4">For Event Planners</h4>
+            <h3 className="text-white font-medium mb-4 text-base">For Event Planners</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/topics" className="text-white/60 hover:text-white transition-colors">
@@ -73,7 +73,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-medium mb-4">Explore</h4>
+            <h3 className="text-white font-medium mb-4 text-base">Explore</h3>
             <ul className="space-y-2">
               <li>
                 <a href="/about" onClick={handleAboutClick} className="text-white/60 hover:text-white transition-colors">
@@ -92,14 +92,14 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-white/40 text-sm">
+          <p className="text-white/60 text-sm">
             &copy; {new Date().getFullYear()} Jason Sosa. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy" className="text-white/40 text-sm hover:text-white transition-colors">
+            <Link to="/privacy" className="text-white/60 text-sm hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="text-white/40 text-sm hover:text-white transition-colors">
+            <Link to="/terms" className="text-white/60 text-sm hover:text-white transition-colors">
               Terms of Service
             </Link>
           </div>
